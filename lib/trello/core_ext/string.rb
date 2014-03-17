@@ -16,6 +16,7 @@ class String
   #   thing.a == 42
   #   thing.b == "foo"
   def json_into(obj)
+    self.force_encoding('UTF-8')
     data = JSON.parse(self)
     data.jsoned_into(obj)
   rescue JSON::ParserError => json_error
